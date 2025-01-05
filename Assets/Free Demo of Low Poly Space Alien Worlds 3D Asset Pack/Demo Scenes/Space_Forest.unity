@@ -48929,7 +48929,7 @@ NavMeshAgent:
   m_Acceleration: Infinity
   avoidancePriority: 50
   m_AngularSpeed: 180
-  m_StoppingDistance: 1
+  m_StoppingDistance: 0.7
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -48949,6 +48949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e8ab6bc5852334d9ca0bd3cdf2ead3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangoDeteccion: 7
 --- !u!33 &2747617574439172324
 MeshFilter:
   m_ObjectHideFlags: 0
