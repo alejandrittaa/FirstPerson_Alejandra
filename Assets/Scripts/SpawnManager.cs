@@ -5,10 +5,9 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject enemigoPrefab; // Prefab del enemigo
-    public Transform puntoSpawn; // Punto específico donde aparecerán los enemigos
-    public int cantidadEnemigos = 3; // Cantidad de enemigos a spawnear
+    public Transform[] puntosSpawn; // Array de puntos específicos donde aparecerán los enemigos
+    public int cantidadEnemigosPorPunto = 1; // Cantidad de enemigos por cada punto de spawn
     private bool yaSpawneado = false; // Para evitar que se spawneen varias veces
-    public Transform[] puntosSpawn; // Array de puntos específicos
 
     void OnTriggerEnter(Collider other)
     {
@@ -16,15 +15,15 @@ public class SpawnManager : MonoBehaviour
         if (other.CompareTag("Player") && !yaSpawneado)
         {
             SpawnEnemigos();
-            yaSpawneado = true; // Asegurar que solo se spawneen una vez y que por más que vuelvas a la zona, ya esté vacia por que lo has matado
+            yaSpawneado = true; // Asegurar que solo se spawneen una vez
         }
     }
 
     void SpawnEnemigos()
     {
-        foreach (Transform punto in puntoSpawn)
+        foreach (Transform punto in puntosSpawn) // Recorrer todos los puntos de spawn
         {
-            for (int i = 0; i < cantidadEnemigos; i++)
+            for (int i = 0; i < cantidadEnemigosPorPunto; i++) // Instanciar varios enemigos en cada punto
             {
                 Instantiate(enemigoPrefab, punto.position, punto.rotation);
             }

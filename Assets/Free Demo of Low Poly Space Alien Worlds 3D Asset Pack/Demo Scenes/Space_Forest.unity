@@ -4402,12 +4402,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemigoPrefab: {fileID: 1003693498955128236}
-  puntoSpawn: {fileID: 2097853566}
-  cantidadEnemigos: 3
   puntosSpawn:
   - {fileID: 2097853566}
   - {fileID: 1844450210}
   - {fileID: 1504060039}
+  cantidadEnemigosPorPunto: 1
 --- !u!65 &197714120
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29809,13 +29808,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504060038}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23, y: 0.52, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 3.2, y: 0.52, z: 0.433}
   m_LocalScale: {x: 0.5115259, y: 0.29754832, z: 0.5339834}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1245510088546179592}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1504060040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36281,13 +36280,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844450209}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23, y: 0.52, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -1.321, y: 0.52, z: -1.908}
   m_LocalScale: {x: 0.5115259, y: 0.29754832, z: 0.5339834}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1245510088546179592}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!65 &1844450211
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41632,13 +41631,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097853565}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.23, y: 0.52, z: 0}
   m_LocalScale: {x: 0.5115259, y: 0.29754832, z: 0.5339834}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1245510088546179592}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!65 &2097853567
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51197,6 +51196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666997760424735488, guid: 0dfe50f33b7e00547aaa6bdab416930c,
+        type: 3}
+      propertyPath: rangoDeteccion
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7802636613628145716, guid: 0dfe50f33b7e00547aaa6bdab416930c,
         type: 3}
