@@ -7,12 +7,13 @@ public class Enemigo : MonoBehaviour
 {
 
     private Animator anim;
-    [SerializeField] private NavMeshAgent agent;
+    private NavMeshAgent agent;
     private Player player;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
 
         //para que identifique donde está el player
         player = GameObject.FindObjectOfType<Player>();
@@ -23,7 +24,7 @@ public class Enemigo : MonoBehaviour
         //dividimos la velocidad actual entre la velocidad máxima
         anim.SetFloat("velocity", agent.velocity.magnitude / agent.speed);
 
-        //para que vaya a por el player
+        //para hacer que persiga al player
         agent.SetDestination(player.gameObject.transform.position);
     }
 }
