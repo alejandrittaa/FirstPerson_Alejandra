@@ -11,7 +11,7 @@ public class Enemigo : MonoBehaviour
     private Player player;
 
     // Variables para detección del jugador
-    public float rangoDeteccion = 10f; // Rango en el que detecta al jugador
+    public float rangoDeteccion = 7f; // Rango en el que detecta al jugador
     private bool persiguiendo = false;
 
     void Start()
