@@ -19,10 +19,16 @@ public class Player : MonoBehaviour
     //para obtener unicamente el componente transform del gameobject pies de manera directa
     [SerializeField] private Transform pies;
 
+    [Header("Gestión de vida")]
+    public int vidaMaxima = 100;
+    private int vidaActual;
+
 
 
     void Start()
     {
+        vidaActual = vidaMaxima;
+
         //para ocultar el raton, lo bloquea en el centro de la pantalla y lo oculta
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -106,4 +112,21 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireSphere(pies.position, radioDeteccion);
     }
 
+    public void ReducirVida(int cantidad)
+    {
+        vidaActual -= cantidad;
+        Debug.Log($"Vida del jugador: {vidaActual}");
+
+        // Comprobar si el jugador está muerto
+        if (vidaActual <= 0)
+        {
+            Morir();
+        }
+    }
+
+    void Morir()
+    {
+        Debug.Log("El jugador ha muerto.");
+        //aquí tenemos que añadir lo que sucede al morir, en este caso, reiniciamos el nivel
+    }
 }
