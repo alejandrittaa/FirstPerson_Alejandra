@@ -2083,7 +2083,7 @@ GameObject:
   - component: {fileID: 89570301}
   - component: {fileID: 89570300}
   - component: {fileID: 89570299}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Suelo_Zona4_04
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -5795,7 +5795,7 @@ GameObject:
   - component: {fileID: 280148525}
   - component: {fileID: 280148524}
   - component: {fileID: 280148523}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9 (5)
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -15168,7 +15168,7 @@ GameObject:
   - component: {fileID: 758977744}
   - component: {fileID: 758977743}
   - component: {fileID: 758977742}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9 (3)
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -17325,7 +17325,7 @@ GameObject:
   - component: {fileID: 861382982}
   - component: {fileID: 861382981}
   - component: {fileID: 861382980}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Suelo_Zona4_02
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -19697,7 +19697,7 @@ GameObject:
   - component: {fileID: 947519555}
   - component: {fileID: 947519554}
   - component: {fileID: 947519553}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9 (2)
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -21382,6 +21382,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4905942245730291013}
+  - {fileID: 3628459096138814885}
+  - {fileID: 2217143913163993647}
+  - {fileID: 4313529976471907281}
   - {fileID: 197714118}
   - {fileID: 1643577204}
   - {fileID: 1245510088546179592}
@@ -21891,7 +21895,7 @@ GameObject:
   - component: {fileID: 1047408624}
   - component: {fileID: 1047408623}
   - component: {fileID: 1047408622}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9 (5)
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -26420,7 +26424,7 @@ GameObject:
   - component: {fileID: 1251574333}
   - component: {fileID: 1251574332}
   - component: {fileID: 1251574331}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9 (2)
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -31326,7 +31330,7 @@ GameObject:
   - component: {fileID: 1486291602}
   - component: {fileID: 1486291601}
   - component: {fileID: 1486291600}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9 (1)
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -32715,7 +32719,7 @@ GameObject:
   - component: {fileID: 1560703247}
   - component: {fileID: 1560703246}
   - component: {fileID: 1560703245}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Suelo_Zona4_01
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -34202,10 +34206,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4313529976471907281}
-  - {fileID: 2217143913163993647}
-  - {fileID: 3628459096138814885}
-  - {fileID: 4905942245730291013}
   - {fileID: 3215634230625635241}
   - {fileID: 8783322133689623671}
   - {fileID: 2883104551625833481}
@@ -35337,7 +35337,7 @@ GameObject:
   - component: {fileID: 1686081280}
   - component: {fileID: 1686081279}
   - component: {fileID: 1686081278}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9 (1)
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -40376,7 +40376,7 @@ GameObject:
   - component: {fileID: 1925856106}
   - component: {fileID: 1925856105}
   - component: {fileID: 1925856104}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Suelo_Zona4_03
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -40868,6 +40868,7 @@ Transform:
   - {fileID: 2008418584}
   - {fileID: 1047408621}
   - {fileID: 539339711}
+  - {fileID: 1245510090263672497}
   m_Father: {fileID: 8551833708912186627}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1955370741
@@ -42188,7 +42189,7 @@ GameObject:
   - component: {fileID: 2008418587}
   - component: {fileID: 2008418586}
   - component: {fileID: 2008418585}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9 (3)
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -46004,7 +46005,7 @@ GameObject:
   - component: {fileID: 7028848055436356471}
   - component: {fileID: 2221821872998454681}
   - component: {fileID: 7135806686346300984}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9 (4)
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -47867,7 +47868,7 @@ GameObject:
   - component: {fileID: 5424356743300542168}
   - component: {fileID: 3646038845406867201}
   - component: {fileID: 4943307503262794109}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9 (7)
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -48811,7 +48812,7 @@ Transform:
   m_GameObject: {fileID: 1874377601441917963}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9197524, z: -0, w: 0.3924991}
-  m_LocalPosition: {x: 62.97, y: 0.05000019, z: -58.69}
+  m_LocalPosition: {x: 32.97, y: 0.05000019, z: -28.689999}
   m_LocalScale: {x: 1.9103998, y: 3.376441, z: 1.9103998}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48821,7 +48822,7 @@ Transform:
   - {fileID: 1399123350}
   - {fileID: 805940427}
   - {fileID: 1655535919}
-  m_Father: {fileID: 8551833708912186627}
+  m_Father: {fileID: 1952266350}
   m_LocalEulerAnglesHint: {x: 0, y: 133.78, z: 0}
 --- !u!1 &1254306410024191491
 GameObject:
@@ -50591,7 +50592,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1643577204}
+  m_Father: {fileID: 1031054780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2221821872998454681
 MeshRenderer:
@@ -54256,7 +54257,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1643577204}
+  m_Father: {fileID: 1031054780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3646038845406867201
 MeshRenderer:
@@ -55761,7 +55762,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1643577204}
+  m_Father: {fileID: 1031054780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4347750103342722940
 MeshFilter:
@@ -55783,7 +55784,7 @@ GameObject:
   - component: {fileID: 6933237965891344267}
   - component: {fileID: 8114958265243005723}
   - component: {fileID: 6677072163888508826}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -57740,7 +57741,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1643577204}
+  m_Father: {fileID: 1031054780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4908799510501267528
 GameObject:
@@ -70939,7 +70940,6 @@ Transform:
   - {fileID: 1031054780}
   - {fileID: 1686441105}
   - {fileID: 1952266350}
-  - {fileID: 1245510090263672497}
   - {fileID: 351222744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -72750,7 +72750,7 @@ GameObject:
   - component: {fileID: 4548155745046761175}
   - component: {fileID: 2936626800586339738}
   - component: {fileID: 8379703623299948167}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Ground_1_9 (6)
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -73719,7 +73719,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
