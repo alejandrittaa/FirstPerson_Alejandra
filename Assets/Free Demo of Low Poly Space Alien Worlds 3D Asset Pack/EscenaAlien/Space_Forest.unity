@@ -614,6 +614,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19815672}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &28738777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28738778}
+  - component: {fileID: 28738780}
+  - component: {fileID: 28738779}
+  m_Layer: 0
+  m_Name: Punto_Spawn4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &28738778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28738777}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.9373001, z: -0, w: -0.34852347}
+  m_LocalPosition: {x: -4.9900002, y: 0.5199999, z: -8.85}
+  m_LocalScale: {x: 0.5115259, y: 0.29754832, z: 0.5339834}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1245510088546179592}
+  m_LocalEulerAnglesHint: {x: 0, y: 220.794, z: 0}
+--- !u!65 &28738779
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28738777}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &28738780
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28738777}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &37300976
 GameObject:
   m_ObjectHideFlags: 0
@@ -3814,6 +3876,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145232865}
   m_Mesh: {fileID: -3863863197838085862, guid: c82bd8d555363bc488d5cccc8b7e13d9, type: 3}
+--- !u!1 &157086210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 157086211}
+  - component: {fileID: 157086213}
+  - component: {fileID: 157086212}
+  m_Layer: 0
+  m_Name: Punto_Spawn5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &157086211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157086210}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.92215574, z: -0, w: 0.38681906}
+  m_LocalPosition: {x: 9.79, y: 0.5199999, z: -12.740006}
+  m_LocalScale: {x: 0.5115259, y: 0.29754832, z: 0.5339834}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1245510088546179592}
+  m_LocalEulerAnglesHint: {x: 0, y: 134.487, z: 0}
+--- !u!65 &157086212
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157086210}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &157086213
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157086210}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &173195944
 GameObject:
   m_ObjectHideFlags: 0
@@ -4511,6 +4635,8 @@ MonoBehaviour:
   - {fileID: 2097853566}
   - {fileID: 1844450210}
   - {fileID: 1504060039}
+  - {fileID: 28738778}
+  - {fileID: 157086211}
   cantidadEnemigosPorPunto: 1
 --- !u!65 &197714120
 BoxCollider:
@@ -42409,7 +42535,7 @@ Transform:
   m_GameObject: {fileID: 2097853565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.23, y: 0.52, z: 0}
+  m_LocalPosition: {x: 1.9, y: 0.52, z: -3.93}
   m_LocalScale: {x: 0.5115259, y: 0.29754832, z: 0.5339834}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46987,6 +47113,8 @@ Transform:
   - {fileID: 2097853566}
   - {fileID: 1844450210}
   - {fileID: 1504060039}
+  - {fileID: 28738778}
+  - {fileID: 157086211}
   m_Father: {fileID: 1031054780}
   m_LocalEulerAnglesHint: {x: 0, y: -50.165, z: 0}
 --- !u!4 &1245510089929086468
