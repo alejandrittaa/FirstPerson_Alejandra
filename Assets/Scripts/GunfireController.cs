@@ -32,6 +32,9 @@ namespace BigRookGames.Weapons
         [Tooltip("Sometimes a mesh will want to be disabled on fire. For example: when a rocket is fired, we instantiate a new rocket, and disable" +
             " the visible rocket attached to the rocket launcher")]
         public GameObject projectileToDisableOnFire;
+        [Tooltip("Damage inflicted on the enemy when hit.")]
+        public int daño = 20; // Daño que inflige el arma
+        public float rangoDisparo = 50f; // Rango del disparo
 
         // --- Timing ---
         [SerializeField] private float timeLastFired;
@@ -92,6 +95,20 @@ namespace BigRookGames.Weapons
             {
                 projectileToDisableOnFire.SetActive(false);
                 Invoke("ReEnableDisabledProjectile", 3);
+            }
+
+            // --- Raycast para detectar impacto ---
+            RaycastHit hit;
+            if (Physics.Raycast(muzzlePosition.transform.position, muzzlePosition.transform.forward, out hit, rangoDisparo))
+            {
+                Debug.Log($"Impacto en: {hit.collider.name}");
+
+                // Verificar si el objeto impactado tiene el script Enemigo
+                Enemigo enemigo = hit.collider.GetComponent<Enemigo>();
+                if (enemigo != null)
+                {
+                    enemigo.RecibirDaño(daño);
+                }
             }
 
             // --- Manejar audio ---

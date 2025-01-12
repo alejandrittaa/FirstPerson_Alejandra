@@ -20,7 +20,7 @@ public class Enemigo : MonoBehaviour
     private bool puedeAtacar = true; // Control de cooldown de ataque
 
     //cosas en referencia al enemigo
-    public int vidaMaxima = 100; // Vida total del enemigo
+    public int vidaMaxima = 30; // Vida total del enemigo
     private int vidaActual;
     private bool estaMuerto = false;
 
