@@ -110,6 +110,7 @@ public class Enemigo : MonoBehaviour
 
     public void RecibirDaño(int cantidad)
     {
+        Debug.Log("Método RecibirDaño llamado.");
         if (estaMuerto) return;
 
         vidaActual -= cantidad;
@@ -124,10 +125,18 @@ public class Enemigo : MonoBehaviour
     void Morir()
     {
         estaMuerto = true;
+
+        // Desactiva el NavMeshAgent
+        if (TryGetComponent(out NavMeshAgent agent))
+        {
+            agent.enabled = false; // Desactiva el agente para evitar errores
+        }
+
+        // Activa el ragdoll (si aplica) o realiza otras acciones
         ActivarRagdoll();
 
-        // Destruir el objeto después de 5 segundos
-        Destroy(this.gameObject, 5f);
+        Debug.Log($"Enemigo {name} ha muerto.");
+        Destroy(gameObject, 5f); // Elimina el objeto después de 5 segundos
     }
 
     void ActivarRagdoll()

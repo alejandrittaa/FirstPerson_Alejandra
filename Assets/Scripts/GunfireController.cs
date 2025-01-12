@@ -62,6 +62,7 @@ namespace BigRookGames.Weapons
             // --- Disparar arma cuando se presiona la tecla E y se respeta el delay ---
             if (Input.GetKeyDown(KeyCode.E) && ((timeLastFired + shotDelay) <= Time.time))
             {
+                Debug.Log("Tecla E presionada. Llamando a FireWeapon.");
                 FireWeapon();
             }
 
@@ -112,32 +113,34 @@ namespace BigRookGames.Weapons
             }
 
             // --- Manejar audio ---
+            // --- Manejar audio del disparo ---
             if (source != null)
             {
-                if (source.transform.IsChildOf(transform))
-                {
-                    source.Play();
-                }
-                else
-                {
-                    AudioSource newAS = Instantiate(source);
-                    if ((newAS = Instantiate(source)) != null && newAS.outputAudioMixerGroup != null && newAS.outputAudioMixerGroup.audioMixer != null)
-                    {
-                        newAS.outputAudioMixerGroup.audioMixer.SetFloat("Pitch", Random.Range(audioPitch.x, audioPitch.y));
-                        newAS.pitch = Random.Range(audioPitch.x, audioPitch.y);
+                source.clip = GunShotClip; // Asegúrate de que se use el clip correcto
+                source.PlayOneShot(GunShotClip); // Reproduce el sonido del disparo
+            }
 
-                        newAS.PlayOneShot(GunShotClip);
-
-                        Destroy(newAS.gameObject, 4);
-                    }
-                }
+            // --- Manejar audio del proyectil deshabilitado ---
+            if (projectileToDisableOnFire != null)
+            {
+                projectileToDisableOnFire.SetActive(false);
+                Invoke("ReEnableDisabledProjectile", 3);
             }
         }
 
         private void ReEnableDisabledProjectile()
         {
-            reloadSource.Play();
-            projectileToDisableOnFire.SetActive(true);
+            // --- Manejar audio de recarga ---
+            if (reloadSource != null)
+            {
+                reloadSource.clip = ReloadClip; // Asegúrate de que se use el clip correcto
+                reloadSource.PlayOneShot(ReloadClip); // Reproduce el sonido de recarga
+            }
+
+            if (projectileToDisableOnFire != null)
+            {
+                projectileToDisableOnFire.SetActive(true);
+            }
         }
     }
 }
