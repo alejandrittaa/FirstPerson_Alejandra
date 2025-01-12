@@ -37,7 +37,11 @@ public class Enemigo : MonoBehaviour
 
         // Inicializar la vida y desactivar el ragdoll
         vidaActual = vidaMaxima;
-        DesactivarRagdoll();
+        //DesactivarRagdoll();
+
+        // Llenamos automáticamente los arrays de Rigidbodies y Colliders
+        ragdollPartes = GetComponentsInChildren<Rigidbody>();
+        collidersRagdoll = GetComponentsInChildren<Collider>();
     }
 
     void Update()
@@ -64,7 +68,7 @@ public class Enemigo : MonoBehaviour
                 persiguiendo = false;
             }
 
-            if (persiguiendo)
+            if (persiguiendo && !estaMuerto)
             {
                 // Dividimos la velocidad actual entre la velocidad máxima
                 anim.SetFloat("velocity", agent.velocity.magnitude / agent.speed);
@@ -73,7 +77,7 @@ public class Enemigo : MonoBehaviour
                 agent.SetDestination(player.transform.position);
                 agent.isStopped = false;
             }
-            else
+            else if (!persiguiendo && !estaMuerto)
             {
                 // Detener el movimiento del enemigo
                 agent.ResetPath();
@@ -127,47 +131,40 @@ public class Enemigo : MonoBehaviour
         estaMuerto = true;
 
         // Desactiva el NavMeshAgent
-        if (TryGetComponent(out NavMeshAgent agent))
+        if (TryGetComponent(out UnityEngine.AI.NavMeshAgent agent))
         {
-            agent.enabled = false; // Desactiva el agente para evitar errores
+            agent.enabled = false; // Desactiva el agente
         }
 
         // Activa el ragdoll (si aplica) o realiza otras acciones
-        ActivarRagdoll();
+        //ActivarRagdoll();
 
         Debug.Log($"Enemigo {name} ha muerto.");
         Destroy(gameObject, 5f); // Elimina el objeto después de 5 segundos
     }
 
-    void ActivarRagdoll()
+    /*void ActivarRagdoll()
     {
-        // Habilitar todos los rigidbodies y colliders del ragdoll
         foreach (Rigidbody rb in ragdollPartes)
         {
-            rb.isKinematic = false;
+            rb.isKinematic = false; // Activa la física
         }
 
         foreach (Collider col in collidersRagdoll)
         {
-            col.enabled = true;
+            col.enabled = true; // Activa los colliders del ragdoll
         }
 
-        // Desactivar el NavMeshAgent o cualquier otro movimiento del enemigo
-        if (TryGetComponent(out NavMeshAgent agent))
-        {
-            agent.enabled = false;
-        }
-
-        // Desactivar el collider principal del enemigo
-        if (TryGetComponent(out Collider mainCollider))
-        {
-            mainCollider.enabled = false;
-        }
-
-        // Desactivar animaciones
+        // Desactiva el Animator por completo
         if (TryGetComponent(out Animator anim))
         {
             anim.enabled = false;
+        }
+
+        // Opcional: Desactivar el collider principal del modelo
+        if (TryGetComponent(out Collider mainCollider))
+        {
+            mainCollider.enabled = false;
         }
     }
 
@@ -183,5 +180,5 @@ public class Enemigo : MonoBehaviour
         {
             col.enabled = false;
         }
-    }
+    }*/
 }

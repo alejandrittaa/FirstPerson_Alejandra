@@ -104,8 +104,8 @@ namespace BigRookGames.Weapons
             {
                 Debug.Log($"Impacto en: {hit.collider.name}");
 
-                // Verificar si el objeto impactado tiene el script Enemigo
-                Enemigo enemigo = hit.collider.GetComponent<Enemigo>();
+                // Intentar obtener el componente Enemigo del objeto impactado o de sus padres
+                Enemigo enemigo = hit.collider.GetComponentInParent<Enemigo>();
                 if (enemigo != null)
                 {
                     enemigo.RecibirDaño(daño);
