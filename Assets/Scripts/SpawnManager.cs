@@ -9,6 +9,8 @@ public class SpawnManager : MonoBehaviour
     public int cantidadEnemigosPorPunto = 1; // Cantidad de enemigos por cada punto de spawn
     private bool yaSpawneado = false; // Para evitar que se spawneen varias veces
 
+    private List<GameObject> enemigosGenerados = new List<GameObject>(); // Lista de enemigos generados
+
     void OnTriggerEnter(Collider other)
     {
         // Comprobar si el objeto que entra en la zona es el jugador
@@ -19,13 +21,25 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    void SpawnEnemigos()
+    public void SpawnEnemigos()
     {
+        if (yaSpawneado)
+        {
+            Debug.Log("Enemigos ya fueron generados. No se generarán nuevamente.");
+            return;
+        }
+
+        Debug.Log("Generando enemigos...");
+
         foreach (Transform punto in puntosSpawn) // Recorrer todos los puntos de spawn
         {
             for (int i = 0; i < cantidadEnemigosPorPunto; i++) // Instanciar x enemigos por punto (al final he puesto solo 1 por punto)
             {
-                Instantiate(enemigoPrefab, punto.position, punto.rotation);
+                // Guarda la referencia del enemigo generado
+                GameObject enemigo = Instantiate(enemigoPrefab, punto.position, punto.rotation);
+
+                // Añadir a la lista para rastrear
+                enemigosGenerados.Add(enemigo);
             }
         }
     }
@@ -33,21 +47,28 @@ public class SpawnManager : MonoBehaviour
     //para poder reiniciar el spawn y que los enemigos se puedan volver a crear cuando se reinicie el nivel
     public void ReiniciarSpawn()
     {
+        Debug.Log("Reiniciando Spawn...");
 
         yaSpawneado = false; // Permitir que los enemigos vuelvan a generarse
 
-        // Busca y elimina a todos los enemigos generados
-        Enemigo[] enemigos = FindObjectsOfType<Enemigo>();
-        foreach (var enemigo in enemigos)
+        // Iterar y eliminar todos los enemigos generados previamente
+        foreach (GameObject enemigo in enemigosGenerados)
         {
-            // Verifica si el enemigo tiene un NavMeshAgent
-            if (enemigo.TryGetComponent<UnityEngine.AI.NavMeshAgent>(out var agent))
+            if (enemigo != null)
             {
-                //agent.ResetPath(); // Detén cualquier movimiento pendiente
-                agent.enabled = false; // Desactiva el NavMeshAgent
+                Debug.Log($"Eliminando enemigo: {enemigo.name}");
+
+                // Verifica si el enemigo tiene un NavMeshAgent
+                if (enemigo.TryGetComponent<UnityEngine.AI.NavMeshAgent>(out var agent))
+                {
+                    agent.enabled = false; // Desactiva el NavMeshAgent
+                }
+
+                Destroy(enemigo); // Destruye el enemigo
             }
 
-            Destroy(enemigo.gameObject); // Destruye el enemigo
         }
+        Debug.Log("Reiniciando Spawn: Enemigos eliminados y yaSpawneado = false.");
+        enemigosGenerados.Clear(); // Limpia la lista para evitar referencias rotas
     }
 }

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float factorGravedad;
     CharacterController characterController;
     [SerializeField] private float alturaSalto;
+    private bool puedeMoverse = true;
 
     [Header("Deteccion de suelo")]
     [SerializeField] private float radioDeteccion;
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
 
     [Header("Gestión de vida")]
     public int vidaMaxima = 100;
-    private int vidaActual;
+    public int vidaActual;
 
     //reinicio de nivel
     public Transform[] zonaCheckpoints; // Checkpoints para cada zona
@@ -68,29 +69,32 @@ public class Player : MonoBehaviour
 
     void MoverYRotar()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
-        Vector2 input = new Vector3(h, v).normalized;
-
-        //creamos esto para que los ojos del jugador cuadren con el movimiento del mismo, ya que si gira la cabeza, tendra que moverse hacia delante y demás, en base a la rotación de su cabeza
-        //giramos sobre la Y, que es el palo que atraviesa al jugador por en medio
-        float anguloRotacion = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
-
-        //roto el cuerpo a la vez que la cabeza
-        transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
-
-        //si la magnitud/tamaño del vector es mayor de 0, si es positiva. 
-        if (input.magnitude > 0)
+        if(puedeMoverse)
         {
+            float h = Input.GetAxisRaw("Horizontal");
+            float v = Input.GetAxisRaw("Vertical");
 
-            //mi movimiento queda rotado en base del ángulo calculado (un cuaternion indica una rotacion, mientras que un vector indica una posición)
-            //tu frontal pasa a ser el ángulo que tenga la cámara
-            Vector3 movimiento = Quaternion.Euler(0, anguloRotacion, 0) * Vector3.forward;
+            Vector2 input = new Vector3(h, v).normalized;
 
-            //como no va por físicas, tendremos que multiplicarlo por Time.deltaTime
-            characterController.Move(movimiento * velocidadMovimiento * Time.deltaTime);
+            //creamos esto para que los ojos del jugador cuadren con el movimiento del mismo, ya que si gira la cabeza, tendra que moverse hacia delante y demás, en base a la rotación de su cabeza
+            //giramos sobre la Y, que es el palo que atraviesa al jugador por en medio
+            float anguloRotacion = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
 
+            //roto el cuerpo a la vez que la cabeza
+            transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+
+            //si la magnitud/tamaño del vector es mayor de 0, si es positiva. 
+            if (input.magnitude > 0)
+            {
+
+                //mi movimiento queda rotado en base del ángulo calculado (un cuaternion indica una rotacion, mientras que un vector indica una posición)
+                //tu frontal pasa a ser el ángulo que tenga la cámara
+                Vector3 movimiento = Quaternion.Euler(0, anguloRotacion, 0) * Vector3.forward;
+
+                //como no va por físicas, tendremos que multiplicarlo por Time.deltaTime
+                characterController.Move(movimiento * velocidadMovimiento * Time.deltaTime);
+
+            }
         }
     }
 
@@ -133,9 +137,6 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Jugador muerto. Reiniciando desde el último checkpoint.");
 
-        // Reinicia la posición del jugador
-        transform.position = zonaCheckpoints[zonaActual].position;
-
         // Reinicia los spawns en el SpawnManager correspondiente
         foreach (var spawnManager in spawnManagers)
         {
@@ -144,6 +145,17 @@ public class Player : MonoBehaviour
 
         //vovler a poner la vida del jugador al máximo
         //vidaActual = vidaMaxima;
+
+        // Verifica el checkpoint
+        Debug.Log($"Checkpoint actual: {zonaCheckpoints[zonaActual].name}");
+        Debug.Log($"Checkpoint posición: {zonaCheckpoints[zonaActual].position}");
+
+        // Desactiva el movimiento
+        puedeMoverse = false;
+        transform.position = zonaCheckpoints[zonaActual].position; // Cambia la posición del player
+        // Reactiva el movimiento después de un momento
+        puedeMoverse = true;
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -165,6 +177,8 @@ public class Player : MonoBehaviour
         {
             zonaActual = 3;
         }
+
+        Debug.Log($"Zona actual: {zonaActual}");
     }
 
 }

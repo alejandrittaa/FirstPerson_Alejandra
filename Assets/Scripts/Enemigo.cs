@@ -46,6 +46,7 @@ public class Enemigo : MonoBehaviour
 
     void Update()
     {
+
         if (player != null)
         {
             // Calcular la distancia entre el enemigo y el jugador
@@ -83,7 +84,7 @@ public class Enemigo : MonoBehaviour
                 agent.ResetPath();
                 anim.SetFloat("velocity", 0);
                 agent.isStopped = true;
-            }else if (estaMuerto) return; //si el enemigo está muerto, no hacer nada
+            }else if (estaMuerto) return;
 
         }
     }

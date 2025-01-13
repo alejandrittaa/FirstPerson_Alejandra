@@ -24887,6 +24887,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 653922833}
   - {fileID: 4905942245730291013}
   - {fileID: 3628459096138814885}
   - {fileID: 2217143913163993647}
@@ -24894,7 +24895,6 @@ Transform:
   - {fileID: 197714118}
   - {fileID: 1643577204}
   - {fileID: 1245510088546179592}
-  - {fileID: 653922833}
   m_Father: {fileID: 8551833708912186627}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033314345
@@ -51046,6 +51046,7 @@ MonoBehaviour:
     m_Bits: 8
   pies: {fileID: 751616427}
   vidaMaxima: 100
+  vidaActual: 0
   zonaCheckpoints:
   - {fileID: 653922833}
   - {fileID: 941376146}
