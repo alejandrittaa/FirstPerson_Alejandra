@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
 
     public SpawnManager[] spawnManagers; // Referencia a los SpawnManagers de cada zona
 
+    private Vector3 ultimoCheckpoint;
+
 
     void Start()
     {
@@ -40,6 +42,16 @@ public class Player : MonoBehaviour
 
         //obtenemos una vez el componente character controller, y lo almacenamos en una variable de tipo character controller
         characterController = GetComponent<CharacterController>();
+
+        // Establece el checkpoint inicial
+        if (zonaCheckpoints.Length > 0)
+        {
+            ultimoCheckpoint = zonaCheckpoints[0].position;
+        }
+        else
+        {
+            Debug.LogError("No hay checkpoints asignados en el array.");
+        }
     }
 
 
@@ -150,35 +162,54 @@ public class Player : MonoBehaviour
         Debug.Log($"Checkpoint actual: {zonaCheckpoints[zonaActual].name}");
         Debug.Log($"Checkpoint posición: {zonaCheckpoints[zonaActual].position}");
 
-        // Desactiva el movimiento
+        // Desactiva el movimiento y el CharacterController antes de reposicionar
         puedeMoverse = false;
-        transform.position = zonaCheckpoints[zonaActual].position; // Cambia la posición del player
-        // Reactiva el movimiento después de un momento
+        characterController.enabled = false;
+
+        // Reposiciona al jugador al último checkpoint
+        if (ultimoCheckpoint != Vector3.zero) // Asegúrate de que no sea el valor por defecto
+        {
+            transform.position = ultimoCheckpoint;
+        }
+        else
+        {
+            Debug.LogWarning("No se ha activado ningún checkpoint. Usando posición inicial.");
+            transform.position = zonaCheckpoints[0].position; // O algún valor inicial por defecto
+        }
+
+        // Reactiva el CharacterController después de reposicionar
+        characterController.enabled = true;
         puedeMoverse = true;
+
+        // Fuerza la generación de enemigos en la zona actual
+        spawnManagers[zonaActual].SpawnEnemigos();
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Cambiar de zona cuando el jugador entra a una nueva
         if (other.CompareTag("Zona1"))
         {
             zonaActual = 0;
+            ultimoCheckpoint = zonaCheckpoints[zonaActual].position;
         }
         else if (other.CompareTag("Zona2"))
         {
             zonaActual = 1;
+            ultimoCheckpoint = zonaCheckpoints[zonaActual].position;
         }
         else if (other.CompareTag("Zona3"))
         {
             zonaActual = 2;
+            ultimoCheckpoint = zonaCheckpoints[zonaActual].position;
         }
         else if (other.CompareTag("Zona4"))
         {
             zonaActual = 3;
+            ultimoCheckpoint = zonaCheckpoints[zonaActual].position;
         }
 
-        Debug.Log($"Zona actual: {zonaActual}");
+        Debug.Log($"Zona actual: {zonaActual}, Checkpoint actualizado: {ultimoCheckpoint}");
     }
 
 }
