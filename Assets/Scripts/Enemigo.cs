@@ -141,6 +141,12 @@ public class Enemigo : MonoBehaviour
         // Activa el ragdoll (si aplica) o realiza otras acciones
         //ActivarRagdoll();
 
+        // Reproducir la animación de muerte
+        if (anim != null)
+        {
+            anim.SetTrigger("Morir");
+        }
+
         Debug.Log($"Enemigo {name} ha muerto.");
         Destroy(gameObject, 5f); // Elimina el objeto después de 5 segundos
     }

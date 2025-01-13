@@ -212,4 +212,9 @@ public class Player : MonoBehaviour
         Debug.Log($"Zona actual: {zonaActual}, Checkpoint actualizado: {ultimoCheckpoint}");
     }
 
+    public void RestablecerVida()
+    {
+        vidaActual = vidaMaxima;
+        Debug.Log($"Vida del jugador restablecida a {vidaActual}.");
+    }
 }

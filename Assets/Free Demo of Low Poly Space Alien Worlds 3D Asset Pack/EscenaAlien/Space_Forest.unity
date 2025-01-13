@@ -5132,6 +5132,7 @@ MonoBehaviour:
   - {fileID: 28738778}
   - {fileID: 157086211}
   cantidadEnemigosPorPunto: 1
+  player: {fileID: 2058296115}
 --- !u!65 &197714120
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27894,6 +27895,7 @@ MonoBehaviour:
   - {fileID: 805940427}
   - {fileID: 1655535919}
   cantidadEnemigosPorPunto: 1
+  player: {fileID: 2058296115}
 --- !u!65 &1112253592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28883,6 +28885,7 @@ MonoBehaviour:
   - {fileID: 1790182099}
   - {fileID: 890606088}
   cantidadEnemigosPorPunto: 1
+  player: {fileID: 2058296115}
 --- !u!65 &1135057569
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51963,6 +51966,7 @@ MonoBehaviour:
   - {fileID: 416286193}
   - {fileID: 735110592}
   cantidadEnemigosPorPunto: 1
+  player: {fileID: 2058296115}
 --- !u!65 &2086344289
 BoxCollider:
   m_ObjectHideFlags: 0

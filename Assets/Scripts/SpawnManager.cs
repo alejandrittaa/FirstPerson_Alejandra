@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
     private bool yaSpawneado = false; // Para evitar que se spawneen varias veces
 
     private List<GameObject> enemigosGenerados = new List<GameObject>(); // Lista de enemigos generados
-
+    public Player player; // Asigna el jugador desde el Inspector
     void OnTriggerEnter(Collider other)
     {
         // Comprobar si el objeto que entra en la zona es el jugador
@@ -30,6 +30,8 @@ public class SpawnManager : MonoBehaviour
         }
 
         Debug.Log("Generando enemigos...");
+
+        yaSpawneado = true; // Marcar como spawneado ANTES de generar enemigos
 
         foreach (Transform punto in puntosSpawn) // Recorrer todos los puntos de spawn
         {
@@ -70,5 +72,18 @@ public class SpawnManager : MonoBehaviour
         }
         Debug.Log("Reiniciando Spawn: Enemigos eliminados y yaSpawneado = false.");
         enemigosGenerados.Clear(); // Limpia la lista para evitar referencias rotas
+
+        //reiniciar la vida del jugador a su vida máxima
+        // Restablecer la vida del jugador
+        if (player != null)
+        {
+            player.RestablecerVida();
+            Debug.Log("Vida player restablecida");
+        }
+        else
+        {
+            Debug.LogWarning("El jugador no está asignado en el SpawnManager.");
+        }
+
     }
 }
