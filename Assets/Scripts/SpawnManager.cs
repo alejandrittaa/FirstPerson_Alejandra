@@ -23,10 +23,16 @@ public class SpawnManager : MonoBehaviour
     {
         foreach (Transform punto in puntosSpawn) // Recorrer todos los puntos de spawn
         {
-            for (int i = 0; i < cantidadEnemigosPorPunto; i++) // Instanciar varios enemigos en cada punto
+            for (int i = 0; i < cantidadEnemigosPorPunto; i++) // Instanciar x enemigos por punto (al final he puesto solo 1 por punto)
             {
                 Instantiate(enemigoPrefab, punto.position, punto.rotation);
             }
         }
+    }
+
+    //para poder reiniciar el spawn y que los enemigos se puedan volver a crear cuando se reinicie el nivel
+    public void ReiniciarSpawn()
+    {
+        yaSpawneado = false; // Permitir que los enemigos vuelvan a generarse
     }
 }

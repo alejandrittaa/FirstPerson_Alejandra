@@ -23,6 +23,11 @@ public class Player : MonoBehaviour
     public int vidaMaxima = 100;
     private int vidaActual;
 
+    //reinicio de nivel
+    public Transform[] zonaCheckpoints; // Checkpoints para cada zona
+    private int zonaActual = 0; // Zona donde está el jugador (0 = Zona1, 1 = Zona2, ...)
+
+    public SpawnManager[] spawnManagers; // Referencia a los SpawnManagers de cada zona
 
 
     void Start()
@@ -126,7 +131,35 @@ public class Player : MonoBehaviour
 
     void Morir()
     {
-        Debug.Log("El jugador ha muerto.");
-        //aquí tenemos que añadir lo que sucede al morir, en este caso, reiniciamos el nivel
+        Debug.Log("Jugador muerto. Reiniciando desde el último checkpoint.");
+
+        // Reinicia la posición del jugador
+        transform.position = zonaCheckpoints[zonaActual].position;
+
+        // Reinicia los spawns en el SpawnManager correspondiente
+        spawnManagers[zonaActual].ReiniciarSpawn();
+
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Cambiar de zona cuando el jugador entra a una nueva
+        if (other.CompareTag("Zona1"))
+        {
+            zonaActual = 0;
+        }
+        else if (other.CompareTag("Zona2"))
+        {
+            zonaActual = 1;
+        }
+        else if (other.CompareTag("Zona3"))
+        {
+            zonaActual = 2;
+        }
+        else if (other.CompareTag("Zona4"))
+        {
+            zonaActual = 3;
+        }
+    }
+
 }
