@@ -68,7 +68,7 @@ public class Enemigo : MonoBehaviour
                 persiguiendo = false;
             }
 
-            if (persiguiendo && !estaMuerto)
+            if (persiguiendo && !estaMuerto && agent.isActiveAndEnabled)
             {
                 // Dividimos la velocidad actual entre la velocidad máxima
                 anim.SetFloat("velocity", agent.velocity.magnitude / agent.speed);
@@ -77,13 +77,14 @@ public class Enemigo : MonoBehaviour
                 agent.SetDestination(player.transform.position);
                 agent.isStopped = false;
             }
-            else if (!persiguiendo && !estaMuerto)
+            else if (!persiguiendo && !estaMuerto && agent.isActiveAndEnabled)
             {
                 // Detener el movimiento del enemigo
                 agent.ResetPath();
                 anim.SetFloat("velocity", 0);
                 agent.isStopped = true;
-            }
+            }else if (estaMuerto) return; //si el enemigo está muerto, no hacer nada
+
         }
     }
 

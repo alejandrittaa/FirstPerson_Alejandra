@@ -137,8 +137,13 @@ public class Player : MonoBehaviour
         transform.position = zonaCheckpoints[zonaActual].position;
 
         // Reinicia los spawns en el SpawnManager correspondiente
-        spawnManagers[zonaActual].ReiniciarSpawn();
+        foreach (var spawnManager in spawnManagers)
+        {
+            spawnManager.ReiniciarSpawn(); // Reinicia todos los SpawnManagers
+        }
 
+        //vovler a poner la vida del jugador al máximo
+        //vidaActual = vidaMaxima;
     }
 
     private void OnTriggerEnter(Collider other)

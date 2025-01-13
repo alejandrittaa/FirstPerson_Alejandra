@@ -33,6 +33,21 @@ public class SpawnManager : MonoBehaviour
     //para poder reiniciar el spawn y que los enemigos se puedan volver a crear cuando se reinicie el nivel
     public void ReiniciarSpawn()
     {
+
         yaSpawneado = false; // Permitir que los enemigos vuelvan a generarse
+
+        // Busca y elimina a todos los enemigos generados
+        Enemigo[] enemigos = FindObjectsOfType<Enemigo>();
+        foreach (var enemigo in enemigos)
+        {
+            // Verifica si el enemigo tiene un NavMeshAgent
+            if (enemigo.TryGetComponent<UnityEngine.AI.NavMeshAgent>(out var agent))
+            {
+                //agent.ResetPath(); // Detén cualquier movimiento pendiente
+                agent.enabled = false; // Desactiva el NavMeshAgent
+            }
+
+            Destroy(enemigo.gameObject); // Destruye el enemigo
+        }
     }
 }
