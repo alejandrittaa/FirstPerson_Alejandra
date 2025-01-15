@@ -5128,6 +5128,7 @@ MonoBehaviour:
   puntosSpawn:
   - {fileID: 2097853566}
   cantidadEnemigosPorPunto: 1
+  yaSpawneado: 0
   player: {fileID: 2058296115}
 --- !u!65 &197714120
 BoxCollider:
@@ -6661,6 +6662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zonaBloqueada: {fileID: 521453565}
+  desbloquearCaja: 0
 --- !u!1 &280148521
 GameObject:
   m_ObjectHideFlags: 0
@@ -9948,6 +9950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zonaBloqueada: {fileID: 1206527813}
+  desbloquearCaja: 0
 --- !u!23 &419035357
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25675,6 +25678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zonaBloqueada: {fileID: 19815674}
+  desbloquearCaja: 0
 --- !u!23 &1048492201
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27886,6 +27890,7 @@ MonoBehaviour:
   puntosSpawn:
   - {fileID: 537438776}
   cantidadEnemigosPorPunto: 1
+  yaSpawneado: 0
   player: {fileID: 2058296115}
 --- !u!65 &1112253592
 BoxCollider:
@@ -28869,6 +28874,7 @@ MonoBehaviour:
   puntosSpawn:
   - {fileID: 961435905}
   cantidadEnemigosPorPunto: 1
+  yaSpawneado: 0
   player: {fileID: 2058296115}
 --- !u!65 &1135057569
 BoxCollider:
@@ -51943,6 +51949,7 @@ MonoBehaviour:
   puntosSpawn:
   - {fileID: 1568000682}
   cantidadEnemigosPorPunto: 1
+  yaSpawneado: 0
   player: {fileID: 2058296115}
 --- !u!65 &2086344289
 BoxCollider:
@@ -67658,6 +67665,7 @@ GameObject:
   - component: {fileID: 2765697408402677036}
   - component: {fileID: 1769493312023545418}
   - component: {fileID: 4864824421660136750}
+  - component: {fileID: 4864824421660136751}
   m_Layer: 0
   m_Name: SM_LootBox_03
   m_TagString: Untagged
@@ -67678,6 +67686,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zonaBloqueada: {fileID: 521453565}
+  desbloquearCaja: 0
+--- !u!65 &4864824421660136751
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864824421660136749}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5388903, y: 0.3320764, z: 0.43047547}
+  m_Center: {x: -0.00000002980233, y: 0.16656981, z: 0.000000022351745}
 --- !u!1 &4872232439060790504
 GameObject:
   m_ObjectHideFlags: 0

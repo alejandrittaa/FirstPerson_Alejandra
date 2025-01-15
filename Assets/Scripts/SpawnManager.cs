@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemigoPrefab; // Prefab del enemigo
     public Transform[] puntosSpawn; // Array de puntos específicos donde aparecerán los enemigos
     public int cantidadEnemigosPorPunto = 1; // Cantidad de enemigos por cada punto de spawn
-    private bool yaSpawneado = false; // Para evitar que se spawneen varias veces
+    public bool yaSpawneado = false; // Para evitar que se spawneen varias veces
 
     private List<GameObject> enemigosGenerados = new List<GameObject>(); // Lista de enemigos generados
     public Player player; // Asigna el jugador desde el Inspector

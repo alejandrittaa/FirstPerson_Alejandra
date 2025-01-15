@@ -22,7 +22,7 @@ public class Enemigo : MonoBehaviour
     //cosas en referencia al enemigo
     public int vidaMaxima = 30; // Vida total del enemigo
     private int vidaActual;
-    private bool estaMuerto = false;
+    public bool estaMuerto = false;
 
     public Rigidbody[] ragdollPartes; // Lista de todos los rigidbodies del modelo
     public Collider[] collidersRagdoll; // Lista de colliders para el ragdoll
