@@ -7,7 +7,7 @@ public class CajaFinal : MonoBehaviour
 
     [SerializeField] private Collider zonaBloqueada; // Collider que separa la zona 1 de la zona 2
     public bool desbloquearCaja = false;
-    public GameObject pantallaFin;
+    public PantallaFinScript pantallaFinal;
 
 
     private void OnTriggerEnter(Collider other)
@@ -28,7 +28,7 @@ public class CajaFinal : MonoBehaviour
             // Eliminar este objeto (el objeto interactivo)
             Destroy(this.gameObject);
             // Activa la pantalla de fin
-            pantallaFin.SetActive(true);
+            pantallaFinal.MostrarPantallaFinal();
 
         }
         else if (!TodosLosEnemigosMuertos())

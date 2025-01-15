@@ -2309,7 +2309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangoDeteccion: 10
-  rangoAtaque: 1.5
+  rangoAtaque: 1
   "da\xF1o": 10
   tiempoEntreAtaques: 1.5
   vidaMaxima: 100

@@ -5,9 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class PantallaInicioScript : MonoBehaviour
 {
+    public GameObject canvasInicio;
+
     public void IniciarJuego()
     {
-        // Carga la escena principal del juego
-        SceneManager.LoadScene("Space_Forest");
+        Debug.Log("Botón Play presionado. Iniciando el juego...");
+
+        // Desactiva el Canvas de Inicio
+        canvasInicio.SetActive(false);
+
+        // Carga la escena principal
+        SceneManager.LoadScene("Space_Forest"); 
     }
 }

@@ -6,10 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class PantallaFinScript : MonoBehaviour
 {
+
+    public GameObject canvasFinal; // Arrastra el CanvasFinal desde el Inspector
+
+    public void MostrarPantallaFinal()
+    {
+        // Activa el Canvas de Finalización
+        canvasFinal.SetActive(true);
+    }
     public void ReiniciarNivel()
     {
         // Reinicia la escena actual
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Space_Forest");
     }
 
     public void SalirJuego()
