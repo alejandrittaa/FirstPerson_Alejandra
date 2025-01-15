@@ -1,12 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ActivarZona : MonoBehaviour
 {
     [SerializeField] private Collider zonaBloqueada; // Collider que separa la zona 1 de la zona 2
     public bool desbloquearCaja = false;
+    private Outline outline;
+    private bool enemigosSpawneados = false; // Variable para controlar si los enemigos han sido spawneados
 
+    private void Start()
+    {
+        // Obtiene el componente Outline
+        outline = GetComponent<Outline>();
+    }
+
+    private void Update()
+    {
+        // Comprueba si los enemigos han sido spawneados y todos están muertos
+        if (enemigosSpawneados && TodosLosEnemigosMuertos())
+        {
+            if (outline != null) // Verifica si el componente sigue siendo válido
+            {
+                outline.enabled = true;
+                Debug.Log("Outline habilitado.");
+            }
+        }
+    }
+
+    // Método para indicar que los enemigos han sido spawneados
+    public void MarcarEnemigosSpawneados()
+    {
+        enemigosSpawneados = true;
+        Debug.Log("Enemigos spawneados.");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,10 +69,10 @@ public class ActivarZona : MonoBehaviour
         foreach (Enemigo enemigo in enemigos)
         {
             // Ignorar el enemigo base usando su tag
-            if (enemigo.CompareTag("EnemigoBase"))
+            /*if (enemigo.CompareTag("EnemigoBase"))
             {
                 continue;
-            }
+            }*/
 
             if (enemigo != null && enemigo.gameObject.activeInHierarchy && !enemigo.EstaMuerto())
             {
@@ -54,4 +82,6 @@ public class ActivarZona : MonoBehaviour
 
         return true; // Si no hay enemigos vivos, devuelve true
     }
+
+   
 }

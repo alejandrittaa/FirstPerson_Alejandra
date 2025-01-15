@@ -11,6 +11,10 @@ public class SpawnManager : MonoBehaviour
 
     private List<GameObject> enemigosGenerados = new List<GameObject>(); // Lista de enemigos generados
     public Player player; // Asigna el jugador desde el Inspector
+
+    public ActivarZona activarOutline;
+    //public CajaFinal activarOutline4;
+
     void OnTriggerEnter(Collider other)
     {
         // Comprobar si el objeto que entra en la zona es el jugador
@@ -44,6 +48,9 @@ public class SpawnManager : MonoBehaviour
                 enemigosGenerados.Add(enemigo);
             }
         }
+        // Marca que los enemigos han sido spawneados
+        activarOutline.MarcarEnemigosSpawneados();
+        //activarOutline4.MarcarEnemigosSpawneados();
     }
 
     //para poder reiniciar el spawn y que los enemigos se puedan volver a crear cuando se reinicie el nivel

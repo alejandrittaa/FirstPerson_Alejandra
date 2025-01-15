@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         vidaActual = vidaMaxima;
 
         //para ocultar el raton, lo bloquea en el centro de la pantalla y lo oculta
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
 
         //obtenemos una vez el componente character controller, y lo almacenamos en una variable de tipo character controller
         characterController = GetComponent<CharacterController>();
