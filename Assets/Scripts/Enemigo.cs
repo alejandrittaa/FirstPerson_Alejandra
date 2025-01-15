@@ -145,6 +145,11 @@ public class Enemigo : MonoBehaviour
         if (anim != null)
         {
             anim.SetTrigger("Morir");
+            Debug.Log("Animación de muerte activada.");
+        }
+        else
+        {
+            Debug.LogWarning("El Animator no está asignado al enemigo.");
         }
 
         Debug.Log($"Enemigo {name} ha muerto.");
