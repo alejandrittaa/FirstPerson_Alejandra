@@ -156,6 +156,11 @@ public class Enemigo : MonoBehaviour
         Destroy(gameObject, 5f); // Elimina el objeto después de 5 segundos
     }
 
+    public bool EstaMuerto()
+    {
+        return estaMuerto; // `estaMuerto` es la variable que marca si el enemigo está muerto
+    }
+
     /*void ActivarRagdoll()
     {
         foreach (Rigidbody rb in ragdollPartes)
