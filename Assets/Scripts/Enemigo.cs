@@ -93,6 +93,14 @@ public class Enemigo : MonoBehaviour
     {
         if (puedeAtacar)
         {
+            // Verificar si el jugador está usando el escudo
+            CambiarArmaEscudo cambiarArmaEscudo = player.GetComponent<CambiarArmaEscudo>();
+            if (cambiarArmaEscudo != null && cambiarArmaEscudo.EstaUsandoEscudo())
+            {
+                Debug.Log("Jugador está usando el escudo. El ataque no tiene efecto.");
+                return; // Salir del método si el jugador tiene el escudo activo
+            }
+
             // Detener el movimiento del enemigo
             agent.isStopped = true;
 
